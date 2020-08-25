@@ -1,0 +1,39 @@
+title .4 new note
+
+note over browser:
+Browser submits the form with a HTTP POST
+request to the address 'new_note'
+end note
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note 
+
+note over server:
+server reads the POST body, creates a new
+note object and adds the new note to an 
+array called 'notes'
+end note
+
+note over server:
+server responds with HTTP STATUS CODE
+302 (URL redirect, the server asks the browser 
+to do  HTTP GET request to the address 
+defined in the header's Location - the 
+address 'notes').
+end note
+
+server-->browser: STATUS CODE 302 'found'
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+

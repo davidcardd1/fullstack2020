@@ -1,0 +1,24 @@
+title .6 new note spa
+
+note over browser:
+fetches js-code and, using an event handler, 
+parses the POST request JSON content and
+pushes it into a list called 'notes'. 
+The code re-renders the notes on the page
+and sends the new note to the server
+end note
+
+note over browser:
+Browser submits a HTTP POST request to
+the address 'new_note_spa' with content
+in JSON format
+end note
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+note over server:
+server responds with HTTP STATUS CODE
+201 (created).
+end note
+
+server-->browser: STATUS CODE 201 'created'
